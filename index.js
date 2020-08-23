@@ -31,12 +31,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("play", (roomId) => {
-    socket.to(roomId).emit("play");
+    socket.broadcast.to(roomId).emit("play");
     console.log(`emitting play on room ${roomId}`);
   });
 
   socket.on("pause", (roomId) => {
-    socket.to(roomId).emit("pause");
+    socket.broadcast.to(roomId).emit("pause");
     console.log(`emitting pause on room ${roomId}`);
   });
 
